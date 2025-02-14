@@ -1,0 +1,14 @@
+class Solution:
+    def beautifulArray(self, n: int) -> list[int]:
+        if n == 1:
+            return [1]
+        
+        odd_part = self.beautifulArray((n + 1) // 2)  # Generate odd indices
+        even_part = self.beautifulArray(n // 2)  # Generate even indices
+        
+        return [2 * x - 1 for x in odd_part] + [2 * x for x in even_part]
+
+# Example usage
+sol = Solution()
+print(sol.beautifulArray(4))  # Output: [2,1,4,3] or another valid permutation
+print(sol.beautifulArray(5))  # Output: [3,1,2,5,4] or another valid permutation

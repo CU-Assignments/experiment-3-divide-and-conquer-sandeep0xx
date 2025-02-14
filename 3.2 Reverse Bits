@@ -1,0 +1,12 @@
+class Solution:
+    def reverseBits(self, n: int) -> int:
+        result = 0
+        for i in range(32):
+            bit = (n >> i) & 1  # Extract the i-th bit from n
+            result |= (bit << (31 - i))  # Place it in the reversed position
+        return result
+
+# Example usage
+sol = Solution()
+print(sol.reverseBits(0b00000010100101000001111010011100))  # Output: 964176192
+print(sol.reverseBits(0b11111111111111111111111111111101))  # Output: 3221225471
